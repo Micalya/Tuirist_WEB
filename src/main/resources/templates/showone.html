@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show One</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'addprograms'">
+    <fieldset disabled>
+        <p class="form-label">Program</p>
+        <input type="text" class="form-control" th:value="${add_program.getProgram()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${add_program.getId_add_programs()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${add_program.getId_add_programs()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'citys'">
+    <fieldset disabled>
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:value="${city.getName()}">
+        <p class="form-label">Country</p>
+        <input type="text" class="form-control" th:value="${city.getCountry()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${city.getId_city()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${city.getId_city()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'countrys'">
+    <fieldset disabled>
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:value="${county.getName()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${county.getId_country()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${county.getId_country()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'hotels'">
+    <fieldset disabled>
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:value="${hotel.getName()}">\
+        <p class="form-label">City</p>
+        <input type="text" class="form-control" th:value="${hotel.getCity().getId_city()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${hotel.getId_hotel()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${hotel.getId_hotel()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'numbers'">
+    <fieldset disabled>
+        <p class="form-label">Number</p>
+        <input type="text" class="form-control" th:value="${number.getNumber()}">
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:value="${number.getTypeNumbers()}">
+        <p class="form-label">Hotel</p>
+        <input type="text" class="form-control" th:value="${number.getHotel()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${number.getId_numbers()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${number.getId_numbers()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typemeals'">
+    <fieldset disabled>
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:value="${typemeal.getType()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${typemeal.getId_type_meals()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${typemeal.getId_type_meals()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typenumbers'">
+    <fieldset disabled>
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:value="${typenumber.getType()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${typenumber.getId_type_numbers()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${typenumber.getId_type_numbers()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typesendings'">
+    <fieldset disabled>
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:value="${typesending.getType()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${typesending.getId_type_sending()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${typesending.getId_type_sending()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typevouchers'">
+    <fieldset disabled>
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:value="${typevoucher.getType()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${typevoucher.getId_type_voucher()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${typevoucher.getId_type_voucher()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'users'">
+    <fieldset disabled>
+        <p class="form-label">Surname</p>
+        <input type="text" class="form-control" th:value="${user.getSurname()}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:value="${user.getName()}">
+        <p class="form-label">MiddleName</p>
+        <input type="text" class="form-control" th:value="${user.getMiddlename()}">
+        <p class="form-label">Login</p>
+        <input type="text" class="form-control" th:value="${user.getLogin()}">
+        <p class="form-label">Password</p>
+        <input type="text" class="form-control" th:value="${user.getPassword()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${user.getId_user()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${user.getId_user()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'vouchers'">
+    <fieldset disabled>
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:value="${voucher.getName()}">
+        <p class="form-label">Description</p>
+        <input type="text" class="form-control" th:value="${voucher.getDescription()}">
+        <p class="form-label">Type Sending</p>
+        <input type="text" class="form-control" th:value="${voucher.getType_sending()}">
+        <p class="form-label">Add Program</p>
+        <input type="text" class="form-control" th:value="${voucher.getAdd_programs()}">
+        <p class="form-label">Number</p>
+        <input type="text" class="form-control" th:value="${voucher.getNumbers()}">
+        <p class="form-label">Type Voucher</p>
+        <input type="text" class="form-control" th:value="${voucher.getType_voucher()}">
+        <p class="form-label">Price</p>
+        <input type="text" class="form-control" th:value="${voucher.getPrice()}">
+        <p class="form-label">Date Departure</p>
+        <input type="text" class="form-control" th:value="${voucher.getDate_departure()}">
+        <p class="form-label">Date Return</p>
+        <input type="text" class="form-control" th:value="${voucher.getDate_return()}">
+    </fieldset>
+    <div>
+        <a th:href="@{/{model}(model=${type})}" class="btn btn-secondary">Back</a>
+        <a th:href="@{/{model}/{id}/edit(model=${type},id=${voucher.getId_voucher()})}" class="btn btn-primary">Edit</a>
+        <form th:method="DELETE" th:action="@{/{model}/{id}/delete(model=${type},id=${voucher.getId_voucher()})}">
+            <input type="submit" class="btn btn-danger" value="Delete"/>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

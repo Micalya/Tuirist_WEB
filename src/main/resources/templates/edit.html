@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'addprograms'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${add_program.getId_add_programs()})}" th:object="${add_program}">
+        <p class="form-label">Program</p>
+        <input type="text" class="form-control" th:field="*{program}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'citys'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${city.getId_city()})}" th:object="${city}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:field="*{name}">
+        <select  name="number">
+            <div th:each="element : ${county}">
+                <option th:text="${element.id_country}"></option>
+            </div>
+        </select>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'countrys'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${county.getId_country()})}" th:object="${county}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:field="*{name}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'hotels'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${hotel.getId_hotel()})}" th:object="${hotel}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:field="*{name}">
+        <select  name="number">
+            <div th:each="element : ${city}">
+                <option th:text="${element.name}" th:value="${element.id_city}"></option>
+            </div>
+        </select>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'numbers'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${number.getId_numbers()})}" th:object="${number}">
+        <p class="form-label">Number</p>
+        <input type="number" class="form-control" th:field="*{number}">
+        <select  name="number">
+            <div th:each="element : ${typenumber}">
+                <option th:text="${element.type}" th:value="${element.id_type_numbers}"></option>
+            </div>
+        </select>
+        <select  name="number">
+            <div th:each="element : ${hotel}">
+                <option th:text="${element.name}" th:value="${element.id_hotel}"></option>
+            </div>
+        </select>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typemeals'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${typemeal.getId_type_meals()})}" th:object="${typemeal}">
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:field="*{type}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typenumbers'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${typenumber.getId_type_numbers()})}" th:object="${typenumber}">
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:field="*{type}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typesendings'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${typesending.getId_type_sending()})}" th:object="${typesending}">
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:field="*{type}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'typevouchers'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${typevoucher.getId_type_voucher()})}" th:object="${typevoucher}">
+        <p class="form-label">Type</p>
+        <input type="text" class="form-control" th:field="*{type}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'users'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${user.getId_user()})}" th:object="${user}">
+        <p class="form-label">Surname</p>
+        <input type="text" class="form-control" th:field="*{surname}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:field="*{name}">
+        <p class="form-label">MiddlName</p>
+        <input type="text" class="form-control" th:field="*{middlename}">
+        <p class="form-label">Login</p>
+        <input type="text" class="form-control" th:field="*{login}">
+        <p class="form-label">Password</p>
+        <input type="text" class="form-control" th:field="*{password}">
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+<div class="vstack gap-2 float-start text-center" th:if="${type} == 'vouchers'">
+    <form th:method="POST" th:action="@{/{model}/{id}/update(model=${type},id=${voucher.getId_voucher()})}" th:object="${voucher}">
+        <p class="form-label">Name</p>
+        <input type="text" class="form-control" th:field="*{name}">
+        <p class="form-label">Description</p>
+        <input type="text" class="form-control" th:field="*{description}">
+        <p class="form-label">Price</p>
+        <input type="text" class="form-control" th:field="*{price}">
+        <p class="form-label">Date Departure</p>
+        <input type="date" class="form-control" th:field="*{date_departure}">
+        <p class="form-label">Date Return</p>
+        <input type="date" class="form-control" th:field="*{date_return}">
+        <select  name="number">
+            <div th:each="element : ${typesending}">
+                <option th:text="${element.type}" th:value="${element.id_type_sending}"></option>
+            </div>
+        </select>
+        <select  name="number">
+            <div th:each="element : ${add_program}">
+                <option th:text="${element.program}" th:value="${element.id_add_programs}"></option>
+            </div>
+        </select>
+        <select  name="number">
+            <div th:each="element : ${number}">
+                <option th:text="${element.number}" th:value="${element.id_numbers}"></option>
+            </div>
+        </select>
+        <select  name="number">
+            <div th:each="element : ${typevoucher}">
+                <option th:text="${element.type}" th:value="${element.id_type_voucher}"></option>
+            </div>
+        </select>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Edit"/>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

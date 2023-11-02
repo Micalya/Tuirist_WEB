@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'addprograms'" th:each="list : ${add_program}">
+    <a th:href="@{/{model}/{id}(model='addprograms',id=${list.getId_add_programs()})}" th:text="${list.getProgram()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'citys'" th:each="list : ${city}">
+    <a th:href="@{/{model}/{id}(model='citys',id=${list.getId_city()})}" th:text="${list.getName()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'countrys'" th:each="list : ${county}">
+    <a th:href="@{/{model}/{id}(model='countrys',id=${list.getId_country()})}" th:text="${list.getName()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'hotels'" th:each="list : ${hotel}">
+    <a th:href="@{/{model}/{id}(model='hotels',id=${list.getId_hotel()})}" th:text="${list.getName()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'numbers'" th:each="list : ${number}">
+    <a th:href="@{/{model}/{id}(model='numbers',id=${list.getId_numbers()})}" th:text="${list.getNumber()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'typemeals'" th:each="list : ${typemeal}">
+    <a th:href="@{/{model}/{id}(model='typemeals',id=${list.getId_type_meals()})}" th:text="${list.getType()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'typenumbers'" th:each="list : ${typenumber}">
+    <a th:href="@{/{model}/{id}(model='typenumbers',id=${list.getId_type_numbers()})}" th:text="${list.getType()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'typesendings'" th:each="list : ${typesending}">
+    <a th:href="@{/{model}/{id}(model='typesendings',id=${list.getId_type_sending()})}" th:text="${list.getType()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'typevouchers'" th:each="list : ${typevoucher}">
+    <a th:href="@{/{model}/{id}(model='typevouchers',id=${list.getId_type_voucher()})}" th:text="${list.getType()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'users'" th:each="list : ${user}">
+    <a th:href="@{/{model}/{id}(model='users',id=${list.getId_user()})}" th:text="${list.getSurname()+list.getName()+list.getMiddlename()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+<div class="vstack text-center rounded-3 p-2" th:if="${type} == 'vouchers'" th:each="list : ${voucher}">
+    <a th:href="@{/{model}/{id}(model='vouchers',id=${list.getId_voucher()})}" th:text="${list.getName()}" class="list-group-item list-group-item-action" draggable="false"></a>
+</div>
+
+<div>
+    <a th:href="@{/}" class="btn btn-secondary">Back</a>
+    <a th:href="@{/{model}/new(model=${type})}" class="btn btn-primary">Create New</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
