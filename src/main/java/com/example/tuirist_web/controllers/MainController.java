@@ -324,7 +324,7 @@ public class MainController {
                 numbersRepos.save(numbers);
                 return "redirect:/numbers/"+id;
             case "typemeals":
-                typeMeals.setId_type_meals(id);
+                typeMeals.setId_Type_Meals(id);
                 typeMealsRepos.save(typeMeals);
                 return "redirect:/typemeals"+id;
             case "typenumbers":

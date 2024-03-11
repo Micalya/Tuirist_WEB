@@ -11,7 +11,7 @@ public class Add_Programs {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_add_programs;
     @NotBlank(message = "Program is required")
-    @Size(min=10, message = "Прошрамма не может быть меньше 10 букв")
+    @Size(min=10, message = "Программа не может быть меньше 10 букв")
     private String program;
 
     public Add_Programs(String program) {

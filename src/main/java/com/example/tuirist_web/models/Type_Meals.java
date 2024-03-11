@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Type_Meals {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_type_meals;
+    private int id_Type_Meals;
     private String type;
 
     public Type_Meals(String type) {
@@ -17,12 +17,12 @@ public class Type_Meals {
     public Type_Meals() {
     }
 
-    public int getId_type_meals() {
-        return id_type_meals;
+    public int getId_Type_Meals() {
+        return id_Type_Meals;
     }
 
-    public void setId_type_meals(int id_type_meals) {
-        this.id_type_meals = id_type_meals;
+    public void setId_Type_Meals(int id_Type_Meals) {
+        this.id_Type_Meals = id_Type_Meals;
     }
 
     public String getType() {
